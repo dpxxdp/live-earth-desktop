@@ -72,7 +72,7 @@ def print_image_time(link):
     local_time = utcmoment.astimezone(tzlocal.get_localzone())
     print(":earth_americas: {:%I:%M}".format(local_time))
 
-base_dir = '/Users/willw/code/live-earth-desktop/'
+base_dir = '/inmanlabs/workspace/live-earth-desktop/'
 tmp = base_dir + 'tmp.jpg'
 out_dir = base_dir + 'images/'
 archive_dir = base_dir + 'old_images/'
@@ -107,7 +107,7 @@ def fetch_and_set():
 
         # clear out the old images in this folder so the OS picks the right one
         # os.system("mv {} {}".format(out_dir + '*', archive_dir))
-        os.system("rm {}".format(out_dir + '*'))
+        os.system("rm -f {}".format(out_dir + '*'))
 
         # now move in the new image. doing it like this because writing the image
         # takes a while, so it's better to make it a (semi-) atomic swap
