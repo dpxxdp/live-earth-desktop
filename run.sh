@@ -1,0 +1,1 @@
+launchctl load -w /Users/danielbarrett/Library/LaunchAgents/himawari.plist

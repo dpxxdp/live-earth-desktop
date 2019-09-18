@@ -87,7 +87,7 @@ def fetch_and_set():
     png.save(tmp, 'PNG')
 
     # clear out the old images in this folder so the OS picks the right one
-    os.system("rm -f /inmanlabs/workspace/live-earth-desktop/images/*")
+    os.system("rm -rf {}".format(out + '*'))
 
     # now move in the new image. doing it like this because writing the image
     # takes a while, so it's better to make it a (semi-) atomic swap

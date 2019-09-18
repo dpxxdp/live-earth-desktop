@@ -60,7 +60,8 @@ def download_file(url, path):
                 # f.flush() # commented by recommendation from J.F.Sebastian
     return path
 
-def print_image_time(link):
+def fetch_and_set():
+    link = get_image_link()
     geocolor_index = link.find('GEOCOLOR/')
     img_time = link[geocolor_index + 16: geocolor_index + 20]
     utcmoment_naive = datetime.utcnow()
@@ -107,13 +108,11 @@ def fetch_and_set():
 
         # clear out the old images in this folder so the OS picks the right one
         # os.system("mv {} {}".format(out_dir + '*', archive_dir))
-        os.system("rm -f {}".format(out_dir + '*'))
+        os.system("rm -rf {}".format(out_dir + '*'))
 
         # now move in the new image. doing it like this because writing the image
         # takes a while, so it's better to make it a (semi-) atomic swap
         os.system("mv {} {}".format(tmp, out_dir + img_name))
-
-    print_image_time(link)
 
 fetch_and_set()
 # try:
